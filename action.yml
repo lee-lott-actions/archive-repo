@@ -1,0 +1,32 @@
+name: Archive Repository
+description: A GitHub Action to archive a specified GitHub repository using the GitHub API
+author: Louisiana Office of Technology Services
+
+inputs:
+  repo-name:
+    description: 'The name of the repository to archive'
+    required: true
+  token:
+    description: 'GitHub token with repository write access'
+    required: true
+  owner:
+    description: 'The owner of the repository (user or organization)'
+    required: true
+
+outputs:
+  result:
+    description: 'Result of the archive attempt ("success" or "failure")'
+    value: ${{ steps.action.outputs.result }}
+  error-message:
+    description: 'Error message if the archive attempt fails'
+    value: ${{ steps.action.outputs.error-message }}
+
+runs:
+  using: composite
+  steps:
+    - name: Archive Repository
+      id: action
+      run: |
+        source ${{ github.action_path }}/action.sh
+        archive_repo "${{ inputs.repo-name }}" "${{ inputs.token }}" "${{ inputs.owner }}"
+      shell: bash
