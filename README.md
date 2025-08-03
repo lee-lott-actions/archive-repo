@@ -43,7 +43,7 @@ This GitHub Action archives a specified GitHub repository using the GitHub API. 
        steps:
          - name: Archive Repository
            id: archive
-           uses: lee-lott/archive-repo@v1.0.0
+           uses: lee-lott-actions/archive-repo@v1.0.0
            with:
              repo-name: ${{ github.event.inputs.repo-name }}
              token: ${{ secrets.GITHUB_TOKEN }}
