@@ -33,7 +33,7 @@ Describe "Set-RepositoryArchiveStatus (archive=true)" {
 		}	
 	}
 
-	Context "Failure Cases {
+	Context "Failure Cases" {
 		It "unit: Set-RepositoryArchiveStatus fails when archived is false" {
 			Mock Invoke-WebRequest {
 				[PSCustomObject]@{
@@ -48,7 +48,7 @@ Describe "Set-RepositoryArchiveStatus (archive=true)" {
 			$output | Should -Contain "result=failure"
 			($output | Where-Object { $_ -match "^error-message=Error: Failed to archive repository $Owner/$RepoName\. HTTP Status: 200" }) |
 				Should -Not -BeNullOrEmpty
-		}	
+		}
 	}
 
 	Context "HTTP Failure Cases" {
