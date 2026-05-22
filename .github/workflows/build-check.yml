@@ -55,7 +55,7 @@ jobs:
         uses: ./
         with:
           repo-name: 'repo-name'
-          owner: 'la-ots-engineering'
+          owner: 'test-owner'
           token: 'fake-token'
         env:
           MOCK_API: http://127.0.0.1:3000
