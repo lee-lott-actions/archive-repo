@@ -64,8 +64,6 @@ Describe "Set-RepositoryArchiveStatus (archive=true)" {
 	
 			$output = Get-Content $env:GITHUB_OUTPUT
 			$output | Should -Contain "result=failure"
-	
-			# Your function writes: "Error: Failed to archive repository owner/repo. HTTP Status: <code>"
 			($output | Where-Object { $_ -match "^error-message=Error: Failed to archive repository $Owner/$RepoName\. HTTP Status: 404" }) |
 				Should -Not -BeNullOrEmpty
 		}
