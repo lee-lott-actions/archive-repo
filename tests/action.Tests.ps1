@@ -1,4 +1,4 @@
-Describe "Set-RepositoryArchiveStatus (archive=true)" {
+Describe "Set-RepositoryArchiveStatus" {
 	BeforeAll {
 		$script:RepoName = "test-repo"
 		$script:Owner = "test-owner"
